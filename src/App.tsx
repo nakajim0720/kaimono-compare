@@ -909,18 +909,6 @@ export default function App() {
                   className="block w-full min-w-0 max-w-full px-2.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-mono h-[42px]"
                 />
               </div>
-              <div className="flex items-end gap-2.5">
-              <div className="w-36 shrink-0">
-                <label className="block text-xs font-bold text-slate-700 mb-1">
-                  記録日（JST）
-                </label>
-                <input
-                  type="date"
-                  value={recordedDate}
-                  onChange={(e) => setRecordedDate(e.target.value)}
-                  className="block w-full min-w-0 max-w-full px-2.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-mono h-[42px]"
-                />
-              </div>
               <div className="flex-1 min-w-0">
                 <label className="flex items-center justify-center gap-2 cursor-pointer select-none px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 h-[42px]">
                   <input
@@ -936,7 +924,6 @@ export default function App() {
                   </label>
                 </div>
               </div>
-            </div>
             
 
             <div>
