@@ -907,7 +907,7 @@ export default function App() {
                   type="date"
                   value={recordedDate}
                   onChange={(e) => setRecordedDate(e.target.value)}
-                  className="appearance-none block w-44 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm font-mono"
+                  className="appearance-none block w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm font-mono"
                 />
               </div>
 
