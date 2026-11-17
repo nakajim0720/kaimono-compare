@@ -128,9 +128,6 @@ export default function App() {
           ...(d.data() as Omit<Store, 'id'>),
         }));
         setStores(data);
-        if (data.length > 0 && !storeId) {
-          setStoreId(data[0].id);
-        }
       },
       handleSnapshotError
     );
@@ -248,6 +245,7 @@ export default function App() {
     setEditingRecordId(null);
     setJanCode('');
     setProductName('');
+    setStoreId('');
     setPriceInput('');
     setQuantityInput('1');
     setIsSale(false);
@@ -812,6 +810,9 @@ export default function App() {
                   required
                   className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium"
                 >
+                  <option value="" disabled>
+                    選択してください
+                  </option>
                   {stores.map((s) => (
                     <option key={s.id} value={s.id}>
                       {s.name}
@@ -940,7 +941,7 @@ export default function App() {
 
             <button
               type="submit"
-              disabled={stores.length === 0}
+              disabled={stores.length === 0 || !storeId}
               className="w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 disabled:bg-slate-300 text-white font-bold rounded-xl shadow text-sm transition-colors"
             >
               {editingRecordId ? '更新を保存する' : 'この価格を登録する'}
