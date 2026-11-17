@@ -825,33 +825,33 @@ export default function App() {
               <label className="block text-xs font-bold text-slate-700 mb-1">
                 価格（税込・円） <span className="text-rose-500">*</span>
               </label>
-              <div className="flex gap-2 items-center">
-                <input
-                  type="number"
-                  inputMode="numeric"
-                  required
-                  min="1"
-                  step="1"
-                  value={priceInput}
-                  onChange={(e) => setPriceInput(e.target.value)}
-                  placeholder="金額を入力"
-                  className="flex-1 px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-base font-bold"
-                />
+              <input
+                type="number"
+                inputMode="numeric"
+                required
+                min="1"
+                step="1"
+                value={priceInput}
+                onChange={(e) => setPriceInput(e.target.value)}
+                placeholder="税抜または税込の金額を入力"
+                className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-base font-bold"
+              />
+              <div className="grid grid-cols-2 gap-2 mt-2">
                 <button
                   type="button"
                   onClick={() => applyTaxCalculation(1.08)}
-                  className="px-3 py-2.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 rounded-xl text-xs font-bold shrink-0 flex items-center gap-1"
+                  className="py-2 px-3 bg-emerald-50 hover:bg-emerald-100 active:bg-emerald-200 text-emerald-800 border border-emerald-200 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-colors"
                 >
-                  <Calculator className="w-3.5 h-3.5" />
-                  <span>+8%税込</span>
+                  <Calculator className="w-3.5 h-3.5 shrink-0" />
+                  <span>税抜から +8%税込に変換</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => applyTaxCalculation(1.1)}
-                  className="px-3 py-2.5 bg-blue-50 hover:bg-blue-100 text-blue-800 border border-blue-200 rounded-xl text-xs font-bold shrink-0 flex items-center gap-1"
+                  className="py-2 px-3 bg-blue-50 hover:bg-blue-100 active:bg-blue-200 text-blue-800 border border-blue-200 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-colors"
                 >
-                  <Calculator className="w-3.5 h-3.5" />
-                  <span>+10%税込</span>
+                  <Calculator className="w-3.5 h-3.5 shrink-0" />
+                  <span>税抜から +10%税込に変換</span>
                 </button>
               </div>
             </div>
@@ -910,21 +910,35 @@ export default function App() {
                   className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm"
                 />
               </div>
-              <div className="pt-5">
-                <label className="flex items-center gap-2.5 cursor-pointer select-none p-2.5 rounded-xl border border-slate-200 bg-slate-50">
+              <div className="flex items-end gap-2.5">
+              <div className="w-36 shrink-0">
+                <label className="block text-xs font-bold text-slate-700 mb-1">
+                  記録日（JST）
+                </label>
+                <input
+                  type="date"
+                  value={recordedDate}
+                  onChange={(e) => setRecordedDate(e.target.value)}
+                  className="block w-full min-w-0 max-w-full px-2.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-mono h-[42px]"
+                />
+              </div>
+              <div className="flex-1 min-w-0">
+                <label className="flex items-center justify-center gap-2 cursor-pointer select-none px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 h-[42px]">
                   <input
                     type="checkbox"
                     checked={isSale}
                     onChange={(e) => setIsSale(e.target.checked)}
-                    className="w-4 h-4 accent-rose-600 rounded"
+                    className="w-4 h-4 accent-rose-600 rounded shrink-0"
                   />
-                  <span className="text-xs font-bold text-slate-800 flex items-center gap-1">
-                    <Tag className="w-3.5 h-3.5 text-rose-500" />
-                    特売・セール
-                  </span>
-                </label>
+                    <span className="text-xs font-bold text-slate-800 flex items-center gap-1 truncate">
+                      <Tag className="w-3.5 h-3.5 text-rose-500 shrink-0" />
+                      <span>特売・セール</span>
+                    </span>
+                  </label>
+                </div>
               </div>
             </div>
+            
 
             <div>
               <label className="block text-xs font-bold text-slate-700 mb-1">
