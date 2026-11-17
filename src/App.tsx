@@ -897,9 +897,8 @@ export default function App() {
                 {unit}あたり
               </span>
             </div>
-
-            <div className="grid grid-cols-2 gap-3 items-center">
-              <div>
+              <div className="flex items-end gap-2.5">
+              <div className="w-36 shrink-0">
                 <label className="block text-xs font-bold text-slate-700 mb-1">
                   記録日（JST）
                 </label>
@@ -907,7 +906,7 @@ export default function App() {
                   type="date"
                   value={recordedDate}
                   onChange={(e) => setRecordedDate(e.target.value)}
-                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm"
+                  className="block w-full min-w-0 max-w-full px-2.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-mono h-[42px]"
                 />
               </div>
               <div className="flex items-end gap-2.5">
